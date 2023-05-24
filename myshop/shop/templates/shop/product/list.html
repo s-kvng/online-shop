@@ -2,19 +2,123 @@
 {% load static %}
 
 
+{% block sideNav %}
+
+  <!-- Sidenav -->
+  <div id="sidenav-1" class="sidenav" role="navigation" data-mdb-hidden="true" data-mdb-accordion="true">
+    <ul class="sidenav-menu">
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-layer-group pe-3"></i><span>Categories</span></a>
+        
+        <ul class="sidenav-collapse show">
+
+          <li class="sidenav-item">
+            <a href="{{ c.get_absolute_url }}" class="sidenav-link">{{ c.slug }}</a>
+          </li> 
+
+        {% for c in categories %}
+        <li class="sidenav-item">
+          <a href="{% url "shop:product_list" %}" class="sidenav-link">All</a>
+        </li> 
+        {% endfor %}
+         
+        </ul>
+      </li>
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-gem pe-3"></i><span>Brands</span></a>
+        <ul class="sidenav-collapse">
+          <li class="sidenav-item">
+            <a class="sidenav-link">Brand 1</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Brand 2</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Brand 3</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Brand 4</a>
+          </li>
+        </ul>
+      </li>
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-gift pe-3"></i><span>Discounts</span></a>
+        <ul class="sidenav-collapse">
+          <li class="sidenav-item">
+            <a class="sidenav-link">-70%</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">-50%</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Any</a>
+          </li>
+        </ul>
+      </li>
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-fire-alt pe-3"></i><span>Popular</span></a>
+        <ul class="sidenav-collapse">
+          <li class="sidenav-item">
+            <a class="sidenav-link">Jewelry</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Snickers</a>
+          </li>
+        </ul>
+      </li>
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fab fa-hotjar pe-3"></i><span>Today's bestseller</span></a>
+        <div class="card mx-3">
+          <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/shoes%20(3).jpg"
+                 class="w-100" />
+            <a href="#!">
+              <div class="mask">
+                <div class="d-flex justify-content-start align-items-end h-100">
+                  <h5><span class="badge bg-danger ms-2">-10%</span></h5>
+                </div>
+              </div>
+              <div class="hover-overlay">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+              </div>
+            </a>
+          </div>
+          <div class="card-body">
+            <a href="" class="text-reset">
+              <p class="mb-2">Pink snickers</p>
+            </a>
+            <p class="mb-0">
+              <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- Sidenav -->
+
+{% endblock %}
+
+
 {% block content %}
 
      <!-- Section: Eco -->
  <section class="mb-6">
+  
     <h5 class="text-center fw-bold mb-6">
-      <i class="fas fa-leaf me-2 text-success"></i>Eco
+      
+      <i class="fas fa-leaf me-2 text-success"></i>
+      {% if category %} {{category.name}} {% else %} Products {% endif %}
     </h5>
     <div class="row gx-xl-5 justify-content-center">
+      
+      {% for product in products %}
+
       <div class="col-lg-3 col-6 mb-4 mb-xl-0">
         <!-- Product card -->
         <div>
           <!-- Product image -->
-          <div
+          <div  
                class="
                       bg-image
                       ripple
@@ -27,7 +131,7 @@
                data-ripple-color="light"
                >
             <img
-                 src="https://mdbootstrap.com/img/new/ecommerce/vertical/009.jpg"
+                 src="{% if product.image %}{{ product.image.url }} {% else %} https://mdbootstrap.com/img/new/ecommerce/vertical/009.jpg {% endif %}" 
                  class="w-100"
                  alt=""
                  />
@@ -61,8 +165,7 @@
 
           <!-- Product content -->
           <a href="" class="px-3 text-reset d-block">
-            <p class="fw-bold mb-2">Red dress</p>
-            <p class="text-muted mb-2">Dresses</p>
+            <p class="fw-bold mb-2">{{ product.name }}</p>
             <ul
                 class="rating mb-2"
                 data-mdb-toggle="rating"
@@ -98,16 +201,19 @@
               </li>
             </ul>
             <h5 class="mb-2">
-              <s class="text-muted me-2 small align-middle">$119</s
-                ><span class="align-middle">$101</span>
+              {% comment %} <s class="text-muted me-2 small align-middle">$119</s> {% endcomment %}
+              <span class="align-middle">{{ product.price }}</span>
             </h5>
           </a>
+
           <!-- Product content -->
         </div>
         <!-- Product card -->
       </div>
 
-      <div class="col-lg-3 col-6 mb-4 mb-lg-0">
+      {% endfor %}
+
+      {% comment %} <div class="col-lg-3 col-6 mb-4 mb-lg-0">
         <!-- Product card -->
         <div>
           <!-- Product image -->
@@ -388,7 +494,7 @@
           <!-- Product content -->
         </div>
         <!-- Product card -->
-      </div>
+      </div> {% endcomment %}
     </div>
   </section>
   <!-- Section: Eco -->
