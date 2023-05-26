@@ -135,7 +135,7 @@
                  class="w-100"
                  alt=""
                  />
-            <a href="#!">
+            <a href="{{ product.get_absolute_url }}">
               <div class="mask">
                 <div
                      class="
@@ -164,7 +164,7 @@
           </div>
 
           <!-- Product content -->
-          <a href="" class="px-3 text-reset d-block">
+          <a href="{{ product.get_absolute_url }}" class="px-3 text-reset d-block">
             <p class="fw-bold mb-2">{{ product.name }}</p>
             <ul
                 class="rating mb-2"
