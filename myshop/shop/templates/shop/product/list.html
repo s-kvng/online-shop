@@ -12,11 +12,12 @@
         
         <ul class="sidenav-collapse show">
 
+          {% for c in categories %}
           <li class="sidenav-item">
             <a href="{{ c.get_absolute_url }}" class="sidenav-link">{{ c.slug }}</a>
           </li> 
 
-        {% for c in categories %}
+        
         <li class="sidenav-item">
           <a href="{% url "shop:product_list" %}" class="sidenav-link">All</a>
         </li> 
@@ -33,12 +34,7 @@
           <li class="sidenav-item">
             <a class="sidenav-link">Brand 2</a>
           </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link">Brand 3</a>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link">Brand 4</a>
-          </li>
+          
         </ul>
       </li>
       <li class="sidenav-item">
@@ -66,33 +62,7 @@
           </li>
         </ul>
       </li>
-      <li class="sidenav-item">
-        <a class="sidenav-link"><i class="fab fa-hotjar pe-3"></i><span>Today's bestseller</span></a>
-        <div class="card mx-3">
-          <div class="bg-image hover-zoom ripple" data-mdb-ripple-color="light">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/shoes%20(3).jpg"
-                 class="w-100" />
-            <a href="#!">
-              <div class="mask">
-                <div class="d-flex justify-content-start align-items-end h-100">
-                  <h5><span class="badge bg-danger ms-2">-10%</span></h5>
-                </div>
-              </div>
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <p class="mb-2">Pink snickers</p>
-            </a>
-            <p class="mb-0">
-              <s>$61.99</s><strong class="ms-2 text-danger">$50.99</strong>
-            </p>
-          </div>
-        </div>
-      </li>
+      
     </ul>
   </div>
   <!-- Sidenav -->
