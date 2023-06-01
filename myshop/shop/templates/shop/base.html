@@ -3,346 +3,335 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>{% block title %} My shop {% endblock %}</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <!-- Google Fonts Roboto -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-    />
-    <!-- MDB ESSENTIAL -->
-    <link rel="stylesheet" href="{% static "css/mdb.min.css" %}" />
-    <!-- MDB PLUGINS -->
-    <link rel="stylesheet" href="{% static "plugins/css/all.min.css" %}" />
-    <!-- Custom styles -->
-    <style></style>
-  </head>
 
-  <body>
-    <!-- Start your project here-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>{% block title %} My shop {% endblock %}</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB ESSENTIAL -->
+  <link rel="stylesheet" href="{% static " css/free/mdb.min.css" %}" />
+  <!-- MDB PLUGINS -->
+  <link rel="stylesheet" href="{% static " plugins/css/all.min.css" %}" />
+  <!-- Custom styles -->
+  <style></style>
+</head>
+
+<body>
+  <!-- Start your project here-->
 
 
-    <header class="mb-7">
-        <!-- Jumbotron -->
-        <div class="p-3 text-center bg-white border-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-                <a href="#!" class="ms-md-2">
-                  <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" />
+  <header class="mb-7">
+    <!-- Jumbotron -->
+    <div class="p-3 text-center bg-white border-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
+            <a href="#!" class="ms-md-2">
+              <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" />
+            </a>
+          </div>
+
+          <div class="col-md-4">
+            <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
+              <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search" />
+              <span class="input-group-text border-0 d-none d-lg-flex"><i class="fas fa-search"></i></span>
+            </form>
+          </div>
+
+          <div class="col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
+            <div class="d-flex">
+              <!-- Cart -->
+              <a class="text-reset me-3" href="#">
+                <span><i class="fas fa-shopping-cart"></i></span>
+                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+              </a>
+
+              <!-- Notification -->
+              <div class="dropdown">
+                <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
+                  role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-bell"></i>
                 </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Some news</a></li>
+                  <li><a class="dropdown-item" href="#">Another news</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
               </div>
-      
-              <div class="col-md-4">
-                <form class="d-flex input-group w-auto my-auto mb-3 mb-md-0">
-                  <input autocomplete="off" type="search" class="form-control rounded" placeholder="Search" />
-                  <span class="input-group-text border-0 d-none d-lg-flex"><i class="fas fa-search"></i></span>
-                </form>
+
+              <!-- Languages -->
+              <div class="dropdown">
+                <a class="text-reset dropdown-toggle me-3 hidden-arrow" href="#" id="navbarDropdown" role="button"
+                  data-mdb-toggle="dropdown" aria-expanded="false">
+                  <i class="flag-united-kingdom flag m-0"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-united-kingdom flag"></i>English
+                      <i class="fa fa-check text-success ms-2"></i></a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-poland flag"></i>Polski</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-china flag"></i>中文</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-japan flag"></i>日本語</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-germany flag"></i>Deutsch</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-france flag"></i>Français</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-spain flag"></i>Español</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-russia flag"></i>Русский</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"><i class="flag-portugal flag"></i>Português</a>
+                  </li>
+                </ul>
               </div>
-      
-              <div class="col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
-                <div class="d-flex">
-                  <!-- Cart -->
-                  <a class="text-reset me-3" href="#">
-                    <span><i class="fas fa-shopping-cart"></i></span>
-                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                  </a>
-      
-                  <!-- Notification -->
-                  <div class="dropdown">
-                    <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                      <i class="fas fa-bell"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Some news</a></li>
-                      <li><a class="dropdown-item" href="#">Another news</a></li>
-                      <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                      </li>
-                    </ul>
-                  </div>
-      
-                  <!-- Languages -->
-                  <div class="dropdown">
-                    <a class="text-reset dropdown-toggle me-3 hidden-arrow" href="#" id="navbarDropdown" role="button"
-                       data-mdb-toggle="dropdown" aria-expanded="false">
-                      <i class="flag-united-kingdom flag m-0"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-united-kingdom flag"></i>English
-                          <i class="fa fa-check text-success ms-2"></i></a>
-                      </li>
-                      <li>
-                        <hr class="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-poland flag"></i>Polski</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-china flag"></i>中文</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-japan flag"></i>日本語</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-germany flag"></i>Deutsch</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-france flag"></i>Français</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-spain flag"></i>Español</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-russia flag"></i>Русский</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#"><i class="flag-portugal flag"></i>Português</a>
-                      </li>
-                    </ul>
-                  </div>
-      
-                  <!-- User -->
-                  <div class="dropdown">
-                    <a class="text-reset dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                       id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                      <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
-                           alt="" loading="lazy" />
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">My profile</a></li>
-                      <li><a class="dropdown-item" href="#">Settings</a></li>
-                      <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                  </div>
-                </div>
+
+              <!-- User -->
+              <div class="dropdown">
+                <a class="text-reset dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
+                  id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
+                    alt="" loading="lazy" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">My profile</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-        <!-- Jumbotron -->
-      
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
-          <!-- Container wrapper -->
-          <div class="container justify-content-center justify-content-md-between">
-            <!-- Left links -->
-            <ul class="navbar-nav flex-row">
-              <li class="nav-item me-2 me-lg-0">
-                <a class="nav-link" href="#" role="button" data-mdb-toggle="sidenav" data-mdb-target="#sidenav-1"
-                   class="btn shadow-0 p-0 me-3" aria-controls="#sidenav-1" aria-haspopup="true">
-                  <i class="fas fa-bars me-1"></i>
-                  <span>Categories</span>
-                </a>
-              </li>
-              <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
-                <a class="nav-link" href="#">Bestsellers</a>
-              </li>
-              <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
-                <a class="nav-link" href="#">Inspirations</a>
-              </li>
-              <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
-                <a class="nav-link" href="#">Blog</a>
-              </li>
-              <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-            <!-- Left links -->
-      
-            <!-- <button class="btn btn-outline-primary" data-mdb-ripple-color="dark" type="button">
+      </div>
+    </div>
+    <!-- Jumbotron -->
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <!-- Container wrapper -->
+      <div class="container justify-content-center justify-content-md-between">
+        <!-- Left links -->
+        <ul class="navbar-nav flex-row">
+          <li class="nav-item me-2 me-lg-0">
+            <a class="nav-link" href="#" role="button" data-mdb-toggle="sidenav" data-mdb-target="#sidenav-1"
+              class="btn shadow-0 p-0 me-3" aria-controls="#sidenav-1" aria-haspopup="true">
+              <i class="fas fa-bars me-1"></i>
+              <span>Categories</span>
+            </a>
+          </li>
+          <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
+            <a class="nav-link" href="#">Bestsellers</a>
+          </li>
+          <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
+            <a class="nav-link" href="#">Inspirations</a>
+          </li>
+          <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+          <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+
+        <!-- <button class="btn btn-outline-primary" data-mdb-ripple-color="dark" type="button">
               Download app<i class="fas fa-download ms-2"></i>
             </button> -->
-          </div>
-          <!-- Container wrapper -->
-        </nav>
-        <!-- Navbar -->
-      
-        {% block sideNav %}
-        {% endblock %}
-      
-        <!-- Background image -->
-        <div id="intro" class="bg-image shadow-1-strong" style="
-                                                                background-image: url(https://mdbootstrap.com/img/new/slides/310.jpg);
-                                                                height: 500px;
-                                                                ">
-          <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.6)">
-            <div class="container d-flex align-items-center justify-content-center text-center h-100">
-              <div class="text-white">
-                <h1 class="mb-3">My Shop</h1>
-                <h4 class="mb-4">Promotions up to 70%!</h4>
-                <a class="btn btn-outline-light btn-lg mb-3" href="#!" role="button">See the promotional offer
-                  <i class="fas fa-gem ms-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Background image -->
-      </header>
-      <!--Main Navigation-->
-      
-      <!--Main layout-->
-      <main class="mb-6">
-        <div class="container">
-      
-         {% block content %}
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
 
-         {% endblock %}
+    {% block sideNav %}
+    {% endblock %}
+
+    <!-- Background image -->
+    <div id="intro" class="bg-image shadow-1-strong" style="background-image: url(https://mdbootstrap.com/img/new/slides/310.jpg);height: 500px;">
+      <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.6)">
+        <div class="container d-flex align-items-center justify-content-center text-center h-100">
+          <div class="text-white">
+            <h1 class="mb-3">My Shop</h1>
+            <h4 class="mb-4">Promotions up to 70%!</h4>
+            <a class="btn btn-outline-light btn-lg mb-3" href="#!" role="button">See the promotional offer
+              <i class="fas fa-gem ms-1"></i>
+            </a>
+          </div>
         </div>
-      </main>
-      <!--Main layout-->
-      
-      <!-- Footer -->
-      <footer class="text-center text-lg-start text-muted" style="background-color: hsl(213, 44%, 97%);">
-        <!-- Section: Social media -->
-        <section
-                 class="
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <main class="mb-6">
+    <div class="container">
+
+      {% block content %}
+
+      {% endblock %}
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-muted" style="background-color: hsl(213, 44%, 97%);">
+    <!-- Section: Social media -->
+    <section class="
                         d-flex
                         justify-content-center justify-content-lg-between
                         p-4
                         border-bottom
                         container
-                        "
-                 >
-          <!-- Left -->
-          <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
+                        ">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer
+              content. Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit.
+            </p>
           </div>
-          <!-- Left -->
-      
-          <!-- Right -->
-          <div>
-            <a href="" class="me-4 text-reset">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-              <i class="fab fa-github"></i>
-            </a>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+            <p>
+              <a href="#!" class="text-reset">Dresses</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Skirts</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Jeans</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Accessories</a>
+            </p>
           </div>
-          <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-      
-        <!-- Section: Links  -->
-        <section class="">
-          <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold mb-4">
-                  <i class="fas fa-gem me-3"></i>Company name
-                </h6>
-                <p>
-                  Here you can use rows and columns to organize your footer
-                  content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                  elit.
-                </p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Products</h6>
-                <p>
-                  <a href="#!" class="text-reset">Dresses</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Skirts</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Jeans</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Accessories</a>
-                </p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                <p>
-                  <a href="#!" class="text-reset">Pricing</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Settings</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Orders</a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">Help</a>
-                </p>
-              </div>
-              <!-- Grid column -->
-      
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-                <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-                <p>
-                  <i class="fas fa-envelope me-3"></i>
-                  info@example.com
-                </p>
-                <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-              </div>
-              <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
           </div>
-        </section>
-        <!-- Section: Links  -->
-      
-        <!-- Copyright -->
-        <div
-             class="text-center p-4"
-             style="background-color: hsla(0, 0%, 17%, 0.04)"
-             >
-          © 2021 Copyright:
-          <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
-             >MDBootstrap.com</a
-            >
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
         </div>
-        <!-- Copyright -->
-      </footer>
-      <!-- Footer -->
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
 
-   
-    <!-- End your project here-->
-  </body>
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: hsla(0, 0%, 17%, 0.04)">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 
-  <!-- MDB ESSENTIAL -->
-  <script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
-  <!-- MDB PLUGINS -->
-  <script type="text/javascript" src="{% static "plugins/js/all.min.js" %}"></script>
-  <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+
+  <!-- End your project here-->
+</body>
+
+<!-- MDB ESSENTIAL -->
+<script type="text/javascript" src="{% static " js/mdb.min.js" %}"></script>
+<!-- MDB PLUGINS -->
+<script type="text/javascript" src="{% static " plugins/js/all.min.js" %}"></script>
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
+
 </html>
