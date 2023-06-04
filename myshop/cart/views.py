@@ -39,6 +39,12 @@ def cart_detail(request):
     print("\n===cart_detail(view)=== -> ")
     cart = Cart(request)
 
+    for item in cart:
+        item['update_quantity_form'] = CartAddProductForm(initial={
+                                            'quantity' : item['quantity'],
+                                            'override' : True
+                                        })
+
     categories = Category.objects.all()
 
     return render(request , 'cart/detail.html' , {'cart': cart, 'categories' : categories})

@@ -61,7 +61,7 @@ class Cart:
             del self.cart[product_id]
             self.save()
 
-
+    #This is a generator function
     def __iter__(self):
 
         """
@@ -83,7 +83,7 @@ class Cart:
         for item in cart.values():
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
-            yield item
+            yield item #this returns an iterator object / used in place of return to define generator 
             
 
 
@@ -96,7 +96,7 @@ class Cart:
 
     def get_total_price(self):
 
-        return sum( Decimal(item['price'] * item['quantity'])  for item in self.cart.values())
+        return sum( Decimal(item['total_price'])  for item in self.cart.values())
 
 
     def clear(self):

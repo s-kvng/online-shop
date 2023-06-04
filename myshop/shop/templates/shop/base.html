@@ -35,7 +35,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-                <a href="#!" class="ms-md-2">
+                <a href="{% url "shop:product_list" %}" class="ms-md-2">
                   <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" />
                 </a>
               </div>
@@ -50,9 +50,18 @@
               <div class="col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
                 <div class="d-flex">
                   <!-- Cart -->
-                  <a class="text-reset me-3" href="#">
+                  <a class="text-reset me-3" href="{% url "cart:cart_detail" %}">
                     <span><i class="fas fa-shopping-cart"></i></span>
-                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
+
+                    {% with total_items=cart|length %}
+                      {% if total_items > 0 %}
+                    <span class="badge rounded-pill badge-notification bg-danger">{{ total_items }}</span>
+
+                      {% else %}
+
+                      {% endif %}
+                    {% endwith %}
+
                   </a>
       
                   <!-- Notification -->

@@ -152,10 +152,10 @@
                   </div>
                 </div>
   
-                <div class="col-md-8 mb-4 mb-md-0">
+                <div class="col-md-6 mb-4 mb-md-0">
                   <p class="fw-bold">{{ product.name }}</p>
                   <p class="mb-1">
-                    <span class="text-muted me-2">Unit Price:</span><span>{{ item.price }}</span>
+                    <span class="text-muted me-2">Unit Price:</span><span>${{ item.price }}</span>
                   </p>
                   <p>
                     <span class="text-muted me-2">Category:</span
@@ -184,24 +184,35 @@
                   </p>
                 </div>
   
-                <div class="col-md-2 mb-4 mb-md-0">
-                  <div class="form-outline mb-4">
-                    <input
-                           type="number"
-                           id="typeNumber"
-                           class="form-control"
-                           value="1"
-                           min="1"
-                           />
-                    <label class="form-label" for="typeNumber"
-                           >Quantity</label
-                      >
-                  </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+
+                  <form method="post" action="{% url "cart:cart_add" product.id  %}">
+                    {% csrf_token %}
+                    <div class="form-outline mb-4">
+                      {{ item.update_quantity_form.quantity }}  
+  
+                      <label class="form-label" for="id_quantity"
+                             >Quantity</label
+                        >
+                    </div>
+  
+                    {{ item.update_quantity_form.override}}
+
+                    <input type="submit" value="Update" class="btn btn-outline-info mb-3">
+
+                  </form>
+
+
+
+
+                  
   
                   <h5 class="mb-2">
                 
-                      <span class="align-middle">{{ item.total_price }}</span>
+                      <span class="align-middle">Total Price: ${{ item.total_price }}</span>
                   </h5>
+
+                    
                   <!-- <p class="text-danger"><small>You save 15%</small></p> -->
                 </div>
               </div>
@@ -264,7 +275,7 @@
           <div class="col-lg-4 mb-4 mb-md-0">
             <!-- Section: Summary -->
             <section class="shadow-4 p-4 rounded-5 mb-4">
-              <h5 class="mb-5">The total amount of</h5>
+              <h5 class="mb-5">The total amount of all items</h5>
   
               <div class="d-flex justify-content-between mb-3">
                 <span>Temporary amount </span>
@@ -276,17 +287,19 @@
               </div>
               <hr class="my-4" />
               <div class="d-flex justify-content-between fw-bold mb-5">
-                <span>The total amount of (including VAT) </span>
+                <span>The total amount (including VAT) </span>
                 <span>${{ cart.get_total_price }}</span>
               </div>
               
 
+              <a href="#" class="btn btn-primary btn-rounded w-100 mb-3">
+                Go to checkout
+              </a>
+
               <a href="{% url "shop:product_list" %}" class="btn btn-secondary btn-rounded w-100">
                 Continue Shopping
               </a>
-              <button type="button" class="btn btn-primary btn-rounded w-100">
-                Got to checkout
-              </button>
+              
             </section>
             <!-- Section: Summary -->
   
