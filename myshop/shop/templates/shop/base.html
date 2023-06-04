@@ -171,22 +171,8 @@
         {% endblock %}
       
         <!-- Background image -->
-        <div id="intro" class="bg-image shadow-1-strong" style="
-                                                                background-image: url(https://mdbootstrap.com/img/new/slides/310.jpg);
-                                                                height: 500px;
-                                                                ">
-          <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.6)">
-            <div class="container d-flex align-items-center justify-content-center text-center h-100">
-              <div class="text-white">
-                <h1 class="mb-3">My Shop</h1>
-                <h4 class="mb-4">Promotions up to 70%!</h4>
-                <a class="btn btn-outline-light btn-lg mb-3" href="#!" role="button">See the promotional offer
-                  <i class="fas fa-gem ms-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% block backImage %}
+        {% endblock %}
         <!-- Background image -->
       </header>
       <!--Main Navigation-->
