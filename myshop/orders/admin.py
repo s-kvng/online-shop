@@ -3,11 +3,11 @@ from .models import Order , OrderItem
 
 # Register your models here.
 class OrderItemInline(admin.TabularInline):
-    models = OrderItem
+    model = OrderItem
     raw_id_fields = ['product']
 
 
-admin.register(Order)
+@admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name' , 'email', 
                     'address', 'postal_code' , 'city' , 'paid', 'created', 'updated']
