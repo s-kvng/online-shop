@@ -88,77 +88,63 @@
                 <div class="row mb-4">
                   <div class="col">
                     <div class="form-outline">
-                      <input
-                             type="text"
-                             id="form6Example1"
-                             class="form-control"
-                             />
-                      <label class="form-label" for="form6Example1"
+                      {{ form.first_name }}
+                      <label class="form-label" for="id_first_name"
                              >First name</label
                         >
                     </div>
                   </div>
                   <div class="col">
                     <div class="form-outline">
-                      <input
-                             type="text"
-                             id="form6Example2"
-                             class="form-control"
-                             />
-                      <label class="form-label" for="form6Example2"
+                      {{ form.last_name }}
+                      <label class="form-label" for="id_last_name"
                              >Last name</label
                         >
                     </div>
                   </div>
                 </div>
   
-                <!-- Text input -->
+                <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input
-                         type="text"
-                         id="form6Example3"
-                         class="form-control"
-                         />
-                  <label class="form-label" for="form6Example3"
-                         >Company name</label
+                 {{ form.email }}
+                  <label class="form-label" for="id_email"
+                         >Email</label
                     >
                 </div>
   
                 <!-- Text input -->
                 <div class="form-outline mb-4">
-                  <input
-                         type="text"
-                         id="form6Example4"
-                         class="form-control"
-                         />
-                  <label class="form-label" for="form6Example4"
+                  {{ form.address }}
+                  <label class="form-label" for="id_address"
                          >Address</label
                     >
                 </div>
   
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input
-                         type="email"
-                         id="form6Example5"
-                         class="form-control"
-                         />
-                  <label class="form-label" for="form6Example5"
-                         >Email</label
+                  {{ form.postal_code }}
+                  <label class="form-label" for="id_postal_code"
+                         >Postal Code</label
                     >
                 </div>
   
-                <!-- Number input -->
+                <!-- city input -->
                 <div class="form-outline mb-4">
-                  <input
-                         type="number"
-                         id="form6Example6"
-                         class="form-control"
-                         />
-                  <label class="form-label" for="form6Example6"
+                 {{ form.city }}
+                  <label class="form-label" for="id_city"
                          >Phone</label
                     >
                 </div>
+
+                <div class=" mb-5 d-inline-block">
+                  <input
+                      type="submit"
+                      class="btn btn-primary btn-rounded w-100"
+                      value="Place order"
+                      >
+                </div>
+                
+              
   
               
                 <h5 class="mb-4">Billing address</h5>
@@ -181,31 +167,35 @@
             <!-- Section: Biling details -->
           </div>
   
+          
           <div class="col-lg-4 mb-4 mb-md-0">
+           
             <!-- Section: Summary -->
             <section class="shadow-4 p-4 rounded-5 mb-4">
               <h5 class="mb-5">The total amount of</h5>
   
-              <div class="d-flex justify-content-between mb-3">
-                <span>Temporary amount </span>
-                <span>$53,98</span>
-              </div>
+             {% for item in cart%}
+                {% with product=item.product %}
+
+                <div class="d-flex justify-content-between mb-3">
+                  <span>{{ item.quantity }}x {{ product.name }} </span>
+                  <span>{{ item.total_price }}</span>
+                </div>
+
+                {% endwith %}
+             {% endfor %}
+
               <div class="d-flex justify-content-between">
                 <span>Shipping </span>
                 <span>Gratis</span>
               </div>
               <hr class="my-4" />
               <div class="d-flex justify-content-between fw-bold mb-5">
-                <span>The total amount of (including VAT) </span>
-                <span>$53,98</span>
+                <span>The total amount of items (including VAT) </span>
+                <span>{{ cart.get_total_price }}</span>
               </div>
   
-              <button
-                      type="button"
-                      class="btn btn-primary btn-rounded w-100"
-                      >
-                Proceed to shipping
-              </button>
+              
             </section>
             <!-- Section: Summary -->
   
