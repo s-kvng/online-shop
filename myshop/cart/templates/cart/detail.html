@@ -18,10 +18,10 @@
             <a href="{{ c.get_absolute_url }}" class="sidenav-link">{{ c.slug }}</a>
           </li> 
 
-       
-        <li class="sidenav-item">
-          <a href="{% url "shop:product_list" %}" class="sidenav-link">All</a>
-        </li> 
+        
+          <li class="sidenav-item">
+            <a href="{% url "shop:product_list" %}" class="sidenav-link">All</a>
+          </li> 
         {% endfor %}
          
         </ul>
@@ -292,8 +292,8 @@
               </div>
               
 
-              <a href="#" class="btn btn-primary btn-rounded w-100 mb-3">
-                Go to checkout
+              <a href="{% url "orders:order_cart" %}" class="btn btn-primary btn-rounded w-100 mb-3">
+                checkout
               </a>
 
               <a href="{% url "shop:product_list" %}" class="btn btn-secondary btn-rounded w-100">
