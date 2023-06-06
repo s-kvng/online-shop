@@ -1,0 +1,229 @@
+{% extends "shop/base.html" %}
+
+{% block sideNav %}
+
+    <!-- Sidenav -->
+<div id="sidenav-1" class="sidenav" role="navigation" data-mdb-hidden="true" data-mdb-accordion="true">
+    <ul class="sidenav-menu">
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-layer-group pe-3"></i><span>Categories</span></a>
+  
+        <ul class="sidenav-collapse show">
+  
+          {% for c in categories %}
+          <li class="sidenav-item">
+            <a href="{{ c.get_absolute_url }}" class="sidenav-link">{{ c.slug }}</a>
+          </li>
+  
+  
+          <li class="sidenav-item">
+            <a href="{% url "shop:product_list" %}" class="sidenav-link">All</a>
+          </li>
+          {% endfor %}
+  
+        </ul>
+      </li>
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-gem pe-3"></i><span>Brands</span></a>
+        <ul class="sidenav-collapse">
+          <li class="sidenav-item">
+            <a class="sidenav-link">Brand 1</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Brand 2</a>
+          </li>
+  
+        </ul>
+      </li>
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-gift pe-3"></i><span>Discounts</span></a>
+        <ul class="sidenav-collapse">
+          <li class="sidenav-item">
+            <a class="sidenav-link">-70%</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">-50%</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Any</a>
+          </li>
+        </ul>
+      </li>
+      <li class="sidenav-item">
+        <a class="sidenav-link"><i class="fas fa-fire-alt pe-3"></i><span>Popular</span></a>
+        <ul class="sidenav-collapse">
+          <li class="sidenav-item">
+            <a class="sidenav-link">Jewelry</a>
+          </li>
+          <li class="sidenav-item">
+            <a class="sidenav-link">Snickers</a>
+          </li>
+        </ul>
+      </li>
+  
+    </ul>
+  </div>
+  <!-- Sidenav -->
+
+{% endblock %}
+
+
+{% block content %}
+
+  
+  <!--Main layout-->
+  <main class="mb-6">
+    <div class="container">
+      <!-- Section: Checkout form -->
+      <section class="">
+        <div class="row gx-lg-5">
+          <div class="col-lg-8 mb-4 mb-md-0">
+            <!-- Section: Biling details -->
+            <section class="">
+              <form method="POST">
+                {% csrf_token %}
+                <h5 class="mb-4">Shipping address</h5>
+  
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                  <div class="col">
+                    <div class="form-outline">
+                      {{ form.first_name }}
+                      <label class="form-label" for="id_first_name"
+                             >First name</label
+                        >
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-outline">
+                      {{ form.last_name }}
+                      <label class="form-label" for="id_last_name"
+                             >Last name</label
+                        >
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                 {{ form.email }}
+                  <label class="form-label" for="id_email"
+                         >Email</label
+                    >
+                </div>
+  
+                <!-- Text input -->
+                <div class="form-outline mb-4">
+                  {{ form.address }}
+                  <label class="form-label" for="id_address"
+                         >Address</label
+                    >
+                </div>
+  
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  {{ form.postal_code }}
+                  <label class="form-label" for="id_postal_code"
+                         >Postal Code</label
+                    >
+                </div>
+  
+                <!-- city input -->
+                <div class="form-outline mb-4">
+                 {{ form.city }}
+                  <label class="form-label" for="id_city"
+                         >Phone</label
+                    >
+                </div>
+
+                <div class=" mb-5 d-inline-block">
+                  <input
+                      type="submit"
+                      class="btn btn-primary btn-rounded w-100"
+                      value="Place order"
+                      >
+                </div>
+                
+              
+  
+              
+                <h5 class="mb-4">Billing address</h5>
+  
+                <!-- Checkbox -->
+                <div class="form-check mb-2">
+                  <input
+                         class="form-check-input me-2"
+                         type="checkbox"
+                         value=""
+                         id="form6Example8"
+                         checked
+                         />
+                  <label class="form-check-label" for="form6Example8">
+                    Same as shipping address
+                  </label>
+                </div>
+              </form>
+            </section>
+            <!-- Section: Biling details -->
+          </div>
+  
+          
+          <div class="col-lg-4 mb-4 mb-md-0">
+           
+            <!-- Section: Summary -->
+            <section class="shadow-4 p-4 rounded-5 mb-4">
+              <h5 class="mb-5">The total amount of</h5>
+  
+             {% for item in cart%}
+                {% with product=item.product %}
+
+                <div class="d-flex justify-content-between mb-3">
+                  <span>{{ item.quantity }}x {{ product.name }} </span>
+                  <span>{{ item.total_price }}</span>
+                </div>
+
+                {% endwith %}
+             {% endfor %}
+
+              <div class="d-flex justify-content-between">
+                <span>Shipping </span>
+                <span>Gratis</span>
+              </div>
+              <hr class="my-4" />
+              <div class="d-flex justify-content-between fw-bold mb-5">
+                <span>The total amount of items (including VAT) </span>
+                <span>{{ cart.get_total_price }}</span>
+              </div>
+  
+              
+            </section>
+            <!-- Section: Summary -->
+  
+            <!-- Section: Summary -->
+            <section class="shadow-4 p-4 rounded-5">
+              <h5 class="mb-4">Apply promo code</h5>
+  
+              <div class="d-flex align-items-center">
+                <input
+                       type="text"
+                       class="form-control rounded me-1"
+                       placeholder="Promo code"
+                       />
+                <button
+                        type="button"
+                        class="btn btn-link btn-rounded overflow-visible"
+                        >
+                  Apply
+                </button>
+              </div>
+            </section>
+            <!-- Section: Summary -->
+          </div>
+        </div>
+      </section>
+      <!-- Section: Checkout form -->
+    </div>
+  </main>
+  <!--Main layout-->
+
+{% endblock %}

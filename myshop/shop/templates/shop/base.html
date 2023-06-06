@@ -35,7 +35,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4 d-flex justify-content-center justify-content-md-start mb-3 mb-md-0">
-                <a href="#!" class="ms-md-2">
+                <a href="{% url "shop:product_list" %}" class="ms-md-2">
                   <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="35" />
                 </a>
               </div>
@@ -50,9 +50,18 @@
               <div class="col-md-4 d-flex justify-content-center justify-content-md-end align-items-center">
                 <div class="d-flex">
                   <!-- Cart -->
-                  <a class="text-reset me-3" href="#">
+                  <a class="text-reset me-3" href="{% url "cart:cart_detail" %}">
                     <span><i class="fas fa-shopping-cart"></i></span>
-                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
+
+                    {% with total_items=cart|length %}
+                      {% if total_items > 0 %}
+                    <span class="badge rounded-pill badge-notification bg-danger">{{ total_items }}</span>
+
+                      {% else %}
+
+                      {% endif %}
+                    {% endwith %}
+
                   </a>
       
                   <!-- Notification -->
@@ -171,22 +180,8 @@
         {% endblock %}
       
         <!-- Background image -->
-        <div id="intro" class="bg-image shadow-1-strong" style="
-                                                                background-image: url(https://mdbootstrap.com/img/new/slides/310.jpg);
-                                                                height: 500px;
-                                                                ">
-          <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.6)">
-            <div class="container d-flex align-items-center justify-content-center text-center h-100">
-              <div class="text-white">
-                <h1 class="mb-3">My Shop</h1>
-                <h4 class="mb-4">Promotions up to 70%!</h4>
-                <a class="btn btn-outline-light btn-lg mb-3" href="#!" role="button">See the promotional offer
-                  <i class="fas fa-gem ms-1"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% block backImage %}
+        {% endblock %}
         <!-- Background image -->
       </header>
       <!--Main Navigation-->
