@@ -10,4 +10,4 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 
 #Celery will look for a tasks.py file in each application directory of applications added to INSTALLED_APPS
 #in order to load asynchronous tasks defined in it.
-app.autodiscover_tasks() 
+app.autodiscover_tasks()
