@@ -14,7 +14,7 @@ def order_created(order_id):
     subject = f"Order no.{order.id}"
     message = f"Dear {Order.first_name},\n\n"\
               f"You have successfully placed an order."\
-              f"Your order ID id {order.id}"
+              f"Your order ID {order.id}"
     mail_sent = send_mail(subject,message,'admin@myshop.com',[order.email])
 
     return mail_sent 
